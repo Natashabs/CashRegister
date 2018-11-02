@@ -11,11 +11,13 @@ class CashRegister{
   }
 
 
+  // - Receives an integer (total price) for tracking.
+  //Run time O (n log n) from the sort method.
   ringUp(int){
     this.price_list.push(int);
-    this.price_list.sort();
-    this.mode_value = int;
+    this.price_list.sort(); //Since it uses MergeSort, it has O(n log n).
 
+    this.mode_value = int;
     //Using map to keep the tracking of mode (most frequent) value
     if (this.price_map[int.toString] === undefined){ //If there is not this value in the map
          this.price_map[int.toString] = 1; //map[price] = 1 (first frequency)
