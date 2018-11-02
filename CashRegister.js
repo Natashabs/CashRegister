@@ -7,17 +7,24 @@ class CashRegister{
     this.mode_value = 0;
     this.frequency = 0;
     this.ring_up_count = 0;
+    this.max_value = 0;
+    this.min_value = 0;
 
   }
 
 
   // - Receives an integer (total price) for tracking.
-  //Run time O (n log n) from the sort method.
+  // Runs in constant time (O(1) time complexity)
   ringUp(int){
-    this.price_list.push(int);
-    this.price_list.sort(); //Since it uses MergeSort, it has O(n log n).
+    if (int < this.min_value) {
+        this.min_value = int;
+    }
+    if (int > this.max_value) {
+        this.max_value = int;
+    }
 
     this.mode_value = int;
+
     //Using map to keep the tracking of mode (most frequent) value
     if (this.price_map[int.toString] === undefined){ //If there is not this value in the map
          this.price_map[int.toString] = 1; //map[price] = 1 (first frequency)
@@ -39,25 +46,25 @@ class CashRegister{
 
   // - Returns the max (int) of all integers seen so far.
   getMax(){
-    console.log(this.price_list[this.price_list.length - 1]); //constant run time O (1)
+    return this.max_value; //Runs in constant time (O(1) time complexity)
 
   }
 
   // - Returns the min (int) of all integers seen so far.
   getMin(){
-    console.log(this.price_list[0]); //constant run time O (1)
+    return this.min_value; //Runs in constant time (O(1) time complexity)
 
   }
 
   // - Returns the mean (float) of all integers seen so far.
   getMean(){
-    console.log(this.sum / this.ring_up_count); //constant run time O (1)
+    return this.sum / this.ring_up_count; //Runs in constant time (O(1) time complexity)
 
   }
 
   // - Returns the mode (most frequent) (int) of all integers seen so far.
   getMode(){
-    console.log(this.mode_value); //constant run time O (1)
+    return this.mode_value; //Runs in constant time (O(1) time complexity)
 
   }
 
@@ -67,13 +74,13 @@ const register = new CashRegister()
 
 register.ringUp(1)
 register.ringUp(0)
-register.getMax() // => 1
-register.getMin()// => 0
-register.getMean() // => 0.5
-register.getMode()// => 1 (1 or 0 is acceptable)
+console.log(register.getMax()) // => 1
+console.log(register.getMin())// => 0
+console.log(register.getMean()) // => 0.5
+console.log(register.getMode())// => 1 (1 or 0 is acceptable)
 register.ringUp(3)
 register.ringUp(1)
-register.getMax() // => 3
-register.getMin() // => 0
-register.getMean() // => 1.25
-register.getMode() // => 1
+console.log(register.getMax()) // => 3
+console.log(register.getMin()) // => 0
+console.log(register.getMean()) // => 1.25
+console.log(register.getMode()) // => 1
