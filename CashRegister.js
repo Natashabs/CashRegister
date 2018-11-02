@@ -58,13 +58,13 @@ const register = new CashRegister()
 
 register.ringUp(1)
 register.ringUp(0)
-console.log(register.getMax()) // => 1
-console.log(register.getMin())// => 0
+register.getMax() // => 1
+register.getMin()// => 0
 register.getMean() // => 0.5
-console.log(register.getMode())// => 1 (1 or 0 is acceptable)
+register.getMode()// => 1 (1 or 0 is acceptable)
 register.ringUp(3)
 register.ringUp(1)
-console.log(register.getMax()) // => 3
-console.log(register.getMin()) // => 0
+register.getMax() // => 3
+register.getMin() // => 0
 register.getMean() // => 1.25
-console.log(register.getMode()) // => 1
+register.getMode() // => 1
